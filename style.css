@@ -11,6 +11,9 @@
     --glass-border: rgba(0, 0, 0, 0.1);
     --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --toggle-bg: rgba(0, 0, 0, 0.08);
+    --toggle-text: #000000;
+    --toggle-hover-bg: rgba(0, 0, 0, 0.15);
 }
 
 [data-theme="dark"] {
@@ -25,6 +28,9 @@
     --glass-bg: rgba(17, 17, 17, 0.7);
     --glass-border: rgba(255, 255, 255, 0.1);
     --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    --toggle-bg: rgba(255, 255, 255, 0.12);
+    --toggle-text: #ffffff;
+    --toggle-hover-bg: rgba(255, 255, 255, 0.25);
 }
 
 * {
@@ -74,22 +80,36 @@ header {
 }
 
 .btn-toggle {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
+    background: var(--toggle-bg);
+    border: 1.5px solid var(--glass-border);
     backdrop-filter: blur(12px);
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1.2rem;
     border-radius: 12px;
     cursor: pointer;
-    color: var(--text-primary);
+    color: var(--toggle-text);
     font-weight: 600;
     transition: var(--transition);
-    box-shadow: var(--card-shadow);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    height: 44px;
 }
 
 .btn-toggle:hover {
     transform: translateY(-2px);
-    background: var(--accent-primary);
-    color: white;
+    background: var(--toggle-hover-bg);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-toggle:active {
+    transform: translateY(0);
+}
+
+.btn-toggle svg {
+    color: var(--toggle-text);
+    transition: var(--transition);
 }
 
 .main-card {
@@ -391,4 +411,5 @@ footer {
     .main-card { padding: 1.5rem; }
     h1 { font-size: 1.8rem; }
     .input-row { grid-template-columns: 1fr; gap: 0; }
+    .btn-toggle { padding: 0.5rem 1rem; }
 }
